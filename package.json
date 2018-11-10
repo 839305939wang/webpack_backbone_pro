@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/839305939wang/webpack_backbone_pro/issues"
   },
-  "homepage": "https://github.com/839305939wang/webpack_backbone_pro#readme"
+  "homepage": "https://github.com/839305939wang/webpack_backbone_pro#readme",
+  "devDependencies": {
+    "chalk": "^2.4.1"
+  }
 }
