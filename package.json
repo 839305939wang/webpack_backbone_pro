@@ -1,0 +1,23 @@
+{
+  "name": "backbone",
+  "version": "1.0.0",
+  "description": "这是一个使用webpack来构建使用backbone作为前端开发框架的实例工程",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo hello backbone"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/839305939wang/webpack_backbone_pro.git"
+  },
+  "keywords": [
+    "webpack",
+    "backbone"
+  ],
+  "author": "yangyangwang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/839305939wang/webpack_backbone_pro/issues"
+  },
+  "homepage": "https://github.com/839305939wang/webpack_backbone_pro#readme"
+}
