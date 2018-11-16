@@ -4,7 +4,9 @@
   "description": "这是一个使用webpack来构建使用backbone作为前端开发框架的实例工程",
   "main": "index.js",
   "scripts": {
-    "test": "echo hello backbone"
+    "test": "echo hello backbone",
+    "dev": "webpack-dev-server --mode development --config build/webpack.dev.conf.js",
+    "build": "webpack --config build/webpack.dev.conf.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,20 @@
   },
   "homepage": "https://github.com/839305939wang/webpack_backbone_pro#readme",
   "devDependencies": {
-    "chalk": "^2.4.1"
+    "chalk": "^2.4.1",
+    "clean-webpack-plugin": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "backbone": "^1.3.3",
+    "echarts": "^4.2.0-rc.2",
+    "jquery": "^3.3.1",
+    "underscore": "^1.9.1",
+    "webpack": "^4.25.1"
   }
 }
