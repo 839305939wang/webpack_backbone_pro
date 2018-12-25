@@ -76,3 +76,76 @@ module.exports = appInfo => {
 };
 
 ```
+```js
+
+const Controller = require('egg').Controller;
+const crypt = require
+class SSHController extends Controller {
+  /**
+   * 打开SSH连接
+   */
+  async openSSH() {
+    const params = {
+       host:'10.31.34.148',
+       port:22,
+       username:'root',
+       password:'7ujMko0admin123'
+    };
+    const client = await this.service.ssh.createClient(params);
+    if(client){
+      console.info("连接成功")
+      this.ctx.body=this.ctx.helper.sequence(200,true,`SSH连接成功`)
+      client.end();
+    }else{
+      console.info("连接失败")
+      this.ctx.body=this.ctx.helper.sequence(500,false,`SSH连接失败`)
+    }
+  }
+}
+module.exports = SSHController;
+
+```
+```js
+module.exports = {
+    sequence(code=200,success=true,msg="请求成功"){
+       return {
+        code,
+        success,
+        msg
+       }
+    }
+}
+```
+```js
+
+'use strict';
+const Client = require('ssh2').Client;
+const Service = require('egg').Service;
+class SSHService extends Service {
+  /**
+     * 创建SSH连接
+     * @param {String} ip 远程服务ip地址
+     * @param {Number} port ssh服务端口
+     * @param {String} username 远程服务器用户名
+     * @param {String} password 远程服务用户名密码
+     * @return {Object} connection SSH连接句柄
+     */
+  createClient({ host, port, username, password }) {
+    const connection = new Client();
+    console.log('userinfo:', host, port, username, password);
+    
+    const options = {host, port, username, password,...this.config.sshConfig};
+    connection.connect(options);
+    return new Promise((resolve, reject) => {
+      connection.on('ready', () => {
+        resolve(connection);
+      });
+      connection.on('error', () => {
+        resolve(false);
+      });
+    });
+  }
+}
+module.exports = SSHService;
+
+```
